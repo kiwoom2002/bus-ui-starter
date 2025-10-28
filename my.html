@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Reservations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- 공통 네비게이션 -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="home.html">🏫 Bus</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="home.html">즐겨찾기</a></li>
+            <li class="nav-item"><a class="nav-link" href="routes.html">노선조회</a></li>
+            <li class="nav-item"><a class="nav-link active" href="my.html">내 예약</a></li>
+          </ul>
+          <div class="d-flex align-items-center gap-3">
+            <span id="navUser" class="text-secondary small"></span>
+            <button class="btn btn-outline-secondary btn-sm" onclick="App.logout()">로그아웃</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container py-4">
+      <h2 class="h5">내 예약</h2>
+      <div class="table-responsive mt-3">
+        <table class="table align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>노선명</th>
+              <th>구분</th>
+              <th>날짜</th>
+              <th>인원</th>
+              <th>금액</th> <!-- 금액 컬럼 -->
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="myTbody"></tbody>
+        </table>
+      </div>
+      <p id="sumRow" class="mt-2 text-end fw-semibold"></p>
+      <p class="small text-secondary">* 지금은 로컬 저장소(localStorage)에 저장됩니다. (DB 연결 전 연습용)</p>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/app.js"></script>
+    <script>App.page('my');</script>
+  </body>
+</html>

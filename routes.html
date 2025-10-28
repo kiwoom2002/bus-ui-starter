@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Routes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- 공통 네비게이션 -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="home.html">🏫 Bus</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="home.html">즐겨찾기</a></li>
+            <li class="nav-item"><a class="nav-link active" href="routes.html">노선조회</a></li>
+            <li class="nav-item"><a class="nav-link" href="my.html">내 예약</a></li>
+          </ul>
+          <div class="d-flex align-items-center gap-3">
+            <span id="navUser" class="text-secondary small"></span>
+            <button class="btn btn-outline-secondary btn-sm" onclick="App.logout()">로그아웃</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container py-4">
+      <div class="d-flex flex-wrap gap-2 align-items-end mb-3">
+        <div>
+          <label class="form-label mb-1">등/하교</label>
+          <select class="form-select" id="selType" style="width:160px">
+            <option value="">전체</option>
+            <option value="등교">등교</option>
+            <option value="하교">하교</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label mb-1">검색</label>
+          <input id="search" class="form-control" placeholder="노선명/정류장 검색" style="width:240px">
+        </div>
+        <button class="btn btn-primary" onclick="App.renderRoutes()">조회</button>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>즐겨찾기</th>
+              <th>노선명</th>
+              <th>구분</th>
+              <th>출발</th>
+              <th>좌석</th>
+              <th>요금</th> <!-- 요금 컬럼 -->
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="routeTbody"></tbody>
+        </table>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/app.js"></script>
+    <script>App.page('routes');</script>
+  </body>
+</html>
